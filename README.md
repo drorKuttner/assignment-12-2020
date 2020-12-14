@@ -12,5 +12,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running
 
-cordova run android --device
-cordova run ios --device
+android `cordova run android --device`
+
+iOS `cordova run ios --device`
