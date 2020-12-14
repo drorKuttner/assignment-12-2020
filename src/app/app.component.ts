@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+declare var device;
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'eToro-task';
+  public title = 'eToro-task';
+  constructor() {
+    document.addEventListener('deviceready', () => {
+      console.log(device.platform);
+    }, false);
+  }
 }

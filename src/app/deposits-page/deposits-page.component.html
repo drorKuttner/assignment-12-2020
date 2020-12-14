@@ -1,0 +1,40 @@
+<div class="root">
+
+  <h1>Deposit</h1>
+
+  <form [formGroup]="depositForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email">
+
+      <mat-error *ngIf="depositForm.controls.email.hasError('email') && !depositForm.controls.email.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+
+      <mat-error *ngIf="depositForm.controls.email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input type="number" matInput formControlName="amount">
+
+      <mat-error *ngIf="depositForm.controls.amount.hasError('min') && !depositForm.controls.amount.hasError('required')">
+        Deposit should be higher than 0
+      </mat-error>
+
+      <mat-error *ngIf="depositForm.controls.amount.hasError('required')">
+        Amount is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <div class="buttons-line">
+    <button mat-button color="warn" (click)="back()">Cancel</button>
+
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="depositForm.invalid">Submit</button>
+  </div>
+
+  <mat-error *ngIf="authenticationFailedFlag">Authentication Failed</mat-error>
+</div>
